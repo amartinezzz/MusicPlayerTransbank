@@ -10,8 +10,15 @@ interface Api {
     @Headers("Accept: application/json")
     @GET("search")
     fun search(
-        @Query("term") term: String?,
-        @Query("mediaType") mediaType: String?,
+        @Query("term") term: String,
+        @Query("mediaType") mediaType: String,
         @Query("limit") limit: Int
+    ): Observable<SearchResponse>
+
+    @Headers("Accept: application/json")
+    @GET("lookup")
+    fun loadAlbum(
+        @Query("id") id: Long,
+        @Query("entity") entity: String
     ): Observable<SearchResponse>
 }

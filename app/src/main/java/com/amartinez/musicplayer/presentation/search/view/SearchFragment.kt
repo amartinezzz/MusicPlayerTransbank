@@ -47,6 +47,7 @@ class SearchFragment : Fragment(), SearchContract.View {
             if (binder.etSearch.text.toString().isNotEmpty()) {
                 presenter.search(binder.etSearch.text.toString(), isNetworkConnected())
                 hideSoftKeyboard(binder.bSearch)
+                binder.flLoader.visibility = View.VISIBLE
             } else {
                 binder.etSearch.error = getString(R.string.search_error)
             }
@@ -58,11 +59,9 @@ class SearchFragment : Fragment(), SearchContract.View {
     }
 
     private fun initAdapter() {
-        adapter =
-            SearchAdapter(
-                requireContext(),
-                findNavController()
-            )
+        adapter = SearchAdapter(
+                    requireContext(),
+                    findNavController())
         val linearLayoutManager =
             LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binder.rvSearch.layoutManager = linearLayoutManager
@@ -86,10 +85,12 @@ class SearchFragment : Fragment(), SearchContract.View {
         adapter.addItems(results)
         adapter.notifyDataSetChanged()
         isLoading = false
+        binder.flLoader.visibility = View.GONE
     }
 
     override fun showError() {
         Toast.makeText(context, getString(R.string.search_no_result), Toast.LENGTH_LONG).show()
+        binder.flLoader.visibility = View.GONE
     }
 
     private fun hideSoftKeyboard(view: View?) {

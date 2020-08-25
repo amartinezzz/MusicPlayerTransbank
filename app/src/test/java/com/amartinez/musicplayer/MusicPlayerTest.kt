@@ -33,6 +33,7 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.*
+import kotlin.collections.ArrayList
 
 @RunWith(MockitoJUnitRunner::class)
 class MusicPlayerTest {
@@ -113,7 +114,7 @@ class MusicPlayerTest {
     private fun SearchResponse.toDomain() = Search (
         "", resultCount, results.map {
             it.toDomain()
-        }
+        } as ArrayList<Result>
     )
 
     @Test

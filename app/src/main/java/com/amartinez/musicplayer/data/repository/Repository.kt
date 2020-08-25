@@ -5,8 +5,13 @@ import io.reactivex.Observable
 
 interface Repository {
     fun search(
-        term: String?,
-        type: String?,
+        term: String,
+        type: String,
         limit: Int
+    ): Observable<Search>
+
+    fun loadAlbum(
+        id: Long,
+        entity: String
     ): Observable<Search>
 }
