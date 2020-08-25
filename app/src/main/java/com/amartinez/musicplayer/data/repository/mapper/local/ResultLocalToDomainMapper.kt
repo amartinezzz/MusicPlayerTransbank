@@ -34,7 +34,7 @@ class ResultLocalToDomainMapper @Inject constructor() {
         return result
     }
 
-    fun map(value: RealmList<ResultLocal>) : List<Result> {
+    fun map(value: RealmList<ResultLocal>) : ArrayList<Result> {
         val list = ArrayList<Result>()
         list.addAll(value.map {
             map(it)

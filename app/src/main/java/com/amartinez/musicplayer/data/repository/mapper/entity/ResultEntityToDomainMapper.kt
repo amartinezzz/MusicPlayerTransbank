@@ -17,7 +17,7 @@ class ResultEntityToDomainMapper @Inject constructor() {
         throw UnsupportedOperationException()
     }
 
-    fun map(value: List<ResultEntity>) : List<Result> {
+    fun map(value: List<ResultEntity>) : ArrayList<Result> {
         val list = ArrayList<Result>()
         list.addAll(value.map {
             map(it)
