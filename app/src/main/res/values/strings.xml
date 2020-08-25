@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MusicPlayer</string>
+
+    <!-- Search -->
+    <string name="search_title">Bienvenido</string>
+    <string name="search_hint">Buscar</string>
+    <string name="search_error">Por favor ingrese un valor</string>
+    <string name="search_no_result">No se encontraron resultados</string>
+
+    <!-- Song detail -->
+    <string name="detail_album">Album: %1$s</string>
+    <string name="detail_artist">Banda: %1$s</string>
+    <string name="detail_no_internet">No se puede reproducir la canción por falta de conexión</string>
+    <string name="detail_songs">Canciones</string>
+</resources>
